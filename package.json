@@ -1,0 +1,39 @@
+{
+  "name": "authomator",
+  "version": "1.0.0",
+  "description": "OAuth authentication helper protecting apps on a caddyserver",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phish108/authomator.git"
+  },
+  "author": "Christian Glahn",
+  "license": "MIT ",
+  "bugs": {
+    "url": "https://github.com/phish108/authomator/issues"
+  },
+  "homepage": "https://github.com/phish108/authomator#readme",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "",
+    "test": "",
+    "main": "node lib/index.js"
+  },
+  "keywords": [
+    "oauth client",
+    "caddyserver",
+    "authentication",
+    "javascript"
+  ],
+  "dependencies": {
+    "@koa/cors": "4.0.0",
+    "@koa/ejs": "5.0.0",
+    "@koa/router": "12.0.0",
+    "koa": "2.13.4",
+    "koa-compose": "4.1.0",
+    "yaml": "2.1.3",
+    "superagent": "8.0.0"
+  }, 
+  "devDependencies": {
+    "eslint": "8.25.0"
+  }
+}

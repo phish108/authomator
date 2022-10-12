@@ -1,0 +1,8 @@
+frontend: 
+  port: 8080
+authenticator: 
+  port: 8081
+backend: 
+  github: 
+    clientkey: foo
+    clienttoken: bar
