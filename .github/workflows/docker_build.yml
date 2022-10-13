@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/github-script
+      - uses: actions/github-script@6
         with:
           script: |
             console.log(JSON.stringify(github))
