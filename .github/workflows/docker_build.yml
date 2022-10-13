@@ -24,11 +24,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/github-script@v6
-        with:
-          result-encoding: string
-          script: |
-            console.log(JSON.stringify(context, "  "))
       - name: Checkout
         uses: actions/checkout@v2
       # https://github.com/docker/setup-qemu-action
@@ -49,8 +44,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           # list of Docker images to use as base name for tags
-          images: |
-            ghcr.io/phish108/authomator
+          images: ghcr.io/${{ github.repository }}
           # Docker tags based on the following events/attributes
           tags: |
             type=schedule
