@@ -1,8 +1,13 @@
 frontend: 
+  url: /auth/
   port: 8080
-authenticator: 
+checker: 
   port: 8081
-backend: 
-  github: 
-    clientkey: foo
-    clienttoken: bar
+backend:
+  zhawgh:
+    name: ZHAW GitHub
+    icon: github
+    type: github
+    baseurl: https://github.zhaw.ch
+    clientid: 5481a03f610ec7f8e925
+    clienttoken: 4dfe7a87847b712b6c6c5c7190389318d8f2d9f4
