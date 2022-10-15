@@ -7,6 +7,8 @@ LABEL org.opencontainers.image.source="https://github.com/phish108/authomator"
 COPY package.json /app/
 COPY entrypoint.sh /app/
 COPY lib /app/lib/
+COPY views /app/views/
+COPY demo /app/demo
 
 WORKDIR /app
 RUN adduser -S authomator && \

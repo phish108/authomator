@@ -1,0 +1,13 @@
+<div class="card-header">
+    Aktive Person
+</div>
+<ul class="list-group list-group-flush">
+    <% Object.keys(user).map((key) => {%>
+        <li class="list-group-item">
+            <span class="text-secondary"><%= key %></span> <span><%= user[key] %></span>
+        </li>
+    <%}) %>
+</ul>
+<div class="card-footer">
+    <a class="btn btn-danger" href="/auth/logout">Abmelden</a>
+</div>
