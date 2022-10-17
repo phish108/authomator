@@ -13,9 +13,7 @@ The entire system is designed to be located behind a caddy proxy server. The aut
 someserver.foo.bar:443 {
     # ...
 
-    handle_path /auth/* {
-        reverse_proxy authserver:80
-    }
+    reverse_proxy /auth/* authserver:80
 
     forward_auth /protected/* {
         uri authserver:8081
