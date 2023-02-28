@@ -1,0 +1,18 @@
+
+{
+    # Email used for letsencypt or zerossl
+    email foo@bar.com
+
+    # expose api admin on the network
+    # admin  :2019
+    admin off
+}
+
+:80 {
+    reverse_proxy /auth/* autho_devautho:8080
+
+    forward_auth / autho_autho:8081 {
+        uri /
+        copy_headers Remote_User Remote_Name Remote_Scope Remote_Email 
+    }
+}

@@ -1,0 +1,35 @@
+services:
+  autho:
+    build:
+      context: ../
+    restart: 'no'
+    configs:
+      - source: authofile
+        target: /etc/authomator/config.yaml
+      - source: jwks
+        target: /etc/authomator/keys.jwks
+    networks:
+      - testnet
+    
+  caddy:
+    image: caddy:2.6.2
+    restart: 'no'
+    configs:
+      - source: caddyfile
+        target: /etc/caddy/Caddyfile
+    networks:
+      - testnet
+    ports: 
+      - target: 80
+        published: 8080
+
+networks:
+  testnet:
+
+configs:
+  caddyfile:
+    file: ./Caddyfile
+  authofile:
+    file: ./config_test.yaml
+  jwks:
+    file: ./foo.jwks
