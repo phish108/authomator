@@ -57,5 +57,4 @@ An example configuration is provided in [demo/config.yaml].
 
 The service can get customised via a special configuration that is located at `/etc/authomator/config.yaml`
 
-
 [https://caddyserver.com/docs/caddyfile/directives/forward_auth]
