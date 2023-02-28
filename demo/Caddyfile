@@ -9,10 +9,16 @@
 }
 
 :80 {
-    reverse_proxy /auth/* autho_devautho:8080
+    redir / /dashboard/
 
-    forward_auth / autho_autho:8081 {
+    reverse_proxy /auth/* autho:8080
+
+    forward_auth /dashboard/* autho:8081 {
         uri /
         copy_headers Remote_User Remote_Name Remote_Scope Remote_Email 
+    }
+
+    handle_path /dashboard/* {
+        reverse_proxy dashi:80
     }
 }

@@ -9,8 +9,14 @@ services:
       - source: jwks
         target: /etc/authomator/keys.jwks
     networks:
-      - testnet
-    
+      - devnet
+
+  dashi:
+    image: caddy:2.6.2
+    restart: 'no'
+    networks:
+      - devnet
+
   caddy:
     image: caddy:2.6.2
     restart: 'no'
@@ -18,13 +24,13 @@ services:
       - source: caddyfile
         target: /etc/caddy/Caddyfile
     networks:
-      - testnet
+      - devnet
     ports: 
       - target: 80
         published: 8080
-
+    
 networks:
-  testnet:
+  devnet:
 
 configs:
   caddyfile:
