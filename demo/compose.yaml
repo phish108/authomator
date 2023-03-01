@@ -21,4 +21,4 @@ configs:
   authofile:
     file: ./config_test.yaml
   jwks:
-    file: ./foo.jwks
+    file: ./keys_dev.jwks
