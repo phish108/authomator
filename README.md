@@ -58,3 +58,31 @@ An example configuration is provided in [demo/config.yaml].
 The service can get customised via a special configuration that is located at `/etc/authomator/config.yaml`
 
 [https://caddyserver.com/docs/caddyfile/directives/forward_auth]
+
+## Development
+
+For external services I use [ngrok](https://ngrok.io) to expose the development tool chain to real domains.
+
+The development toolchain consists of the reverse proxy and a protected ressource container as well as the autho service. In order to keep everybody happy, the reverse proxy is running all the time during development. 
+
+```
+> docker compose -f demo/proxy.yaml up -d --remove-orphans # send to background
+> docker compose -f demo/compose.yaml up --build           # adding --remove orphans here kills the reverse proxy
+```
+
+In a second Terminal start `ngrok`
+
+```
+> ngrok http 8080
+```
+
+The first stack runs in the background as we are hardly concerned with its logs. 
+
+The second component is interactively running, so we can see the logs from authomator.
+
+When the development session is complete, run the following steps:
+
+1. Terminate `ngrok` with `^C`.
+2. Terminate `authomator` with `^C`
+3. Terminate the reverse proxy with `docker compose -f demo/proxy.yaml down`
+

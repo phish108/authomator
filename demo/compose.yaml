@@ -9,28 +9,11 @@ services:
       - source: jwks
         target: /etc/authomator/keys.jwks
     networks:
-      - devnet
-
-  dashi:
-    image: caddy:2.6.2
-    restart: 'no'
-    networks:
-      - devnet
-
-  caddy:
-    image: caddy:2.6.2
-    restart: 'no'
-    configs:
-      - source: caddyfile
-        target: /etc/caddy/Caddyfile
-    networks:
-      - devnet
-    ports: 
-      - target: 80
-        published: 8080
+      - demo_devnet
     
 networks:
-  devnet:
+  demo_devnet:
+    external: true
 
 configs:
   caddyfile:
