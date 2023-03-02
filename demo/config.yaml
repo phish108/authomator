@@ -1,4 +1,5 @@
 frontend: 
+  baseurl: https://yourhost.example.com
   url: /auth/
   port: 8080
 checker: 
