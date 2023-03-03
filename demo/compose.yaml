@@ -1,0 +1,24 @@
+services:
+  autho:
+    build:
+      context: ../
+    restart: 'no'
+    configs:
+      - source: authofile
+        target: /etc/authomator/config.yaml
+      - source: jwks
+        target: /etc/authomator/keys.jwks
+    networks:
+      - demo_devnet
+    
+networks:
+  demo_devnet:
+    external: true
+
+configs:
+  caddyfile:
+    file: ./Caddyfile
+  authofile:
+    file: ./config_test.yaml
+  jwks:
+    file: ./keys_dev.jwks

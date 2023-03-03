@@ -5,7 +5,7 @@
     <% targets.forEach(function (target) {%>
         <li class="list-group-item">
             <a href="/auth/extern?target=<%= target.target %>" class="btn btn-dark">
-                <i class="fab fa-lg fa-square-<%= target.icon %>"></i></span> <%= target.name %>
+                <i class="fab fa-lg fa-<%= target.icon %>"></i></span> <%= target.name %>
             </a>
         </li>
     <% })%>

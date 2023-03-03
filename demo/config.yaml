@@ -1,9 +1,10 @@
 frontend: 
+  baseurl: https://yourhost.example.com
   url: /auth/
   port: 8080
 checker: 
   port: 8081
-backend:
+targets:
   SomeOauth:
     name: External Name
     icon: github

@@ -1,0 +1,26 @@
+services:
+  dashi:
+    image: caddy:2.6.2
+    restart: 'no'
+    networks:
+      - devnet
+
+  caddy:
+    image: caddy:2.6.2
+    restart: 'no'
+    configs:
+      - source: caddyfile
+        target: /etc/caddy/Caddyfile
+    networks:
+      - devnet
+    ports: 
+      - target: 80
+        published: 8080
+    
+networks:
+  devnet:
+    attachable: true
+
+configs:
+  caddyfile:
+    file: ./Caddyfile

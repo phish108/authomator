@@ -125,5 +125,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# local specials 
 demo/config_test.yaml
 test*.mjs
+demo/*.jwks
