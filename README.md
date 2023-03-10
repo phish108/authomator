@@ -51,7 +51,66 @@ The auth server has currently 4 endpoints:
 
 The check server consists of a single endpoint that is used 
 
-## Configuration 
+## Authomator Configuration
+
+Authomator has three main sections: 
+
+- `frontend` - configuration of the front facing Interfaces
+- `checker` - configuration of the session checker endpoint
+- `targets` - base line configuration for the issuer endpoints
+- `user` - base line configuration for admin users
+
+### Frontend options 
+
+- `baseurl` - The base url of the client to be registered with issuers.
+- `url` -  The path of the front end functions as used by the reverse proxy.
+- `port` - The internal port of the front end. MUST match with the configuration of the reverse proxy. (**Default**: 8080) 
+- `success-target` - pointer to automatically forward a user to the appropriate location after successfull authentication.
+
+**Deprecation note:** 
+
+- `port` will be fixed to 80 for the sake of easier configuration. 
+- `success-target` will be resolved based on the user scope.
+
+### Checker options
+
+- `url` - The path to the frontend. This is used, if the requested resource is not available to the user.
+- `port` - port the reverse proxy needs to use for header checks. (**Default** 8081)
+
+**Deprecation note:** 
+
+The entire section will be integrated with the frontend. `port` will be fixed to `8081`.
+
+### Targets Configuration
+
+The targets configuration defines the issuer endpoints and their specialities.
+
+Each issuer is uniquely identified by its internal name. 
+
+The following options are available per issuer.
+
+- `name` - Display Name of the Issuer on the login page.
+- `icon` - Icon to use on the login page.
+- `type` - The type of the issuer, currently supported: `github` and `oidc`. 
+- `baseurl` - Baseurl of the issuer. This MUST be the URL used for client identification.
+- `clientid` - the client id of *authomator* as registered with the issuer. 
+- `clientsecret` - the mutual client secret as registered with the issuer. 
+- `auth_method` - the authentication method used by the client. Supported values are `client_secret_basic`, `client_secret_post`, `private_key_jwt`, `client_secret_jwt`. Github supports only `client_secret_basic`. For OpenID Connect `private_key_jwt` is recommended. 
+- `sign_alg` - the signing algorithm for JWT.
+- `jwks` - jwks or jwks reference to the private keys used by JWT auth-methods. It is recommended use a file reference for the private keys. 
+- `aud_method` - option to workaround issuer specific implementatons for jwt authentication. Supported options are `single_issuer`, `single_token`, and `endpoint`. `single_issuer` uses the issuer url as the single jwt audience, which is required by Microsoft Active Directory. `single_token` uses the token endpoint as the single jwt audience. `endpoint` uses the endpoint of the current request instead of the token_endpoint url as audience. 
+
+### user Configuration 
+
+The user configuration consists of a list of users and their access scope.
+
+The reverse proxy sets the scope header. The scope is a simple string. The checker component uses the scope, to decide on allowing access to the path. 
+
+Each user is defined by 
+- `login` - a username or email address. 
+- `scope` - the scope or list of scopes of a user. 
+
+##  Configuration of a reverse proxy 
 
 An example configuration is provided in [demo/config.yaml]. 
 
