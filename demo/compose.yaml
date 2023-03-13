@@ -13,7 +13,7 @@ services:
     
 networks:
   demo_devnet:
-    external: true
+    # external: true
 
 configs:
   caddyfile:

@@ -1,6 +1,7 @@
 {
   "name": "authomator",
   "version": "1.0.0",
+  "type": "module",
   "description": "OAuth authentication helper protecting apps on a caddyserver",
   "repository": {
     "type": "git",
@@ -14,7 +15,8 @@
   "homepage": "https://github.com/phish108/authomator#readme",
   "main": "lib/index.mjs",
   "scripts": {
-    "build": "",
+    "lint": "eslint lib/",
+    "quickfix": "eslint --fix lib/",
     "test": "",
     "main": "node lib/index.mjs"
   },
