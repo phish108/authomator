@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@eslint/js": "8.35.0",
-    "eslint": "8.35.0"
+    "eslint": "8.35.0",
+    "globals": "13.20.0"
   }
 }
