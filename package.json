@@ -30,8 +30,8 @@
     "@koa/router": "12.0.0",
     "koa": "2.13.4",
     "koa-compose": "4.1.0",
-    "openid-client": "github:phish108/node-openid-client",
-    "service-logger": "github:phish108/node-service-logger",
+    "openid-client": "5.4.0",
+    "service-logger": "github:phish108/node-service-logger#8c94fbc",
     "yaml": "2.1.3"
   },
   "devDependencies": {
