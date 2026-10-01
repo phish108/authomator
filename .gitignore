@@ -130,3 +130,4 @@ dist
 demo/config_test.yaml
 test*.mjs
 demo/*.jwks
+**/.DS_Store
